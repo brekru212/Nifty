@@ -10,6 +10,23 @@ angular.module('starter.controllers', [])
 
   .controller('MessagesCtrl', function($scope) {})
 
+  .controller('LoginCtrl', function($scope) {
+    $scope.name = 'login please';
+    $scope.FBLogin = function() {
+      FB.login(function(response) {
+        if (response.status === 'connected') {
+          console.log("connected to fb");
+          var accessToken = FB.getAuthResponse();
+          console.log(accessToken);
+        } else if (response.status === 'not_authorized') {
+          console.log("not auth'd to connect to fb");
+        } else {
+          console.log("not connected to fb");
+        }
+      })
+    }
+  })
+
   .controller('ChatsCtrl', function($scope, Chats) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.

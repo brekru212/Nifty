@@ -35,6 +35,7 @@ header p {
 .homefeed-item {
   width: 48%;
   margin: 24px 0 0 0;
+  padding: 0;
 }
 
 .userinfo-container, .clothing-thumb-container, .clothing-description-container {
