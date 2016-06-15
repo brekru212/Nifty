@@ -1,25 +1,42 @@
 <ion-view view-title="Nifty">
   <ion-content class="padding">
-
-    <section id="homefeed">
-      <!-- WILL DEVELOP JS FUNCTION FOR THIS! -->
-      <div class="homefeed-item">
+    <ion-list id="homefeed">
+      <ion-item ng-repeat="home in home" type="item-text-wrap" class="homefeed-item">
         <div class="userinfo-container">
           <div class="prof-pic-thumb-container">
-            <img class="prof-pic-thumb" ng-src="{{homefeed.face}}">
+            <img class="prof-pic-thumb" ng-src="{{home.face}}">
           </div>
-          <p class="">{{homefeed.name}}</p>
+          <p>{{home.name}}</p>
         </div>
         <div class="clothing-thumb-container">
-          <img class="clothing-thumb" ng-src="{{homefeed.dressimg}}">
+          <img class="clothing-thumb" ng-src="{{home.dressimg}}">
         </div>
         <div class="clothing-description-container">
-          <p class="clothing-price">Rent for ${{homefeed.price}}</p>
-          <p class="clothing-name">{{homefeed.dressname}}</p>
+          <p class="clothing-price">Rent for ${{home.price}}</p>
+          <p class="clothing-name">{{home.dressname}}</p>
         </div>
-      </div>
+      </ion-item>
+    </ion-list>
 
-    </section>
+    <!--<section id="homefeed">-->
+    <!--&lt;!&ndash; WILL DEVELOP JS FUNCTION FOR THIS! &ndash;&gt;-->
+    <!--<div class="homefeed-item">-->
+      <!--<div class="userinfo-container">-->
+        <!--<div class="prof-pic-thumb-container">-->
+          <!--<img class="prof-pic-thumb" ng-src="{{home.face}}">-->
+        <!--</div>-->
+        <!--<p class="">{{home.name}}</p>-->
+      <!--</div>-->
+      <!--<div class="clothing-thumb-container">-->
+        <!--<img class="clothing-thumb" ng-src="{{home.dressimg}}">-->
+      <!--</div>-->
+      <!--<div class="clothing-description-container">-->
+        <!--<p class="clothing-price">Rent for ${{home.price}}</p>-->
+        <!--<p class="clothing-name">{{home.dressname}}</p>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--</section>-->
 
   </ion-content>
 </ion-view>
