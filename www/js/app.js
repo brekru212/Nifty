@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.home', 'ngOpenFB'])
+angular.module('nifty', ['ionic', 'nifty.controllers', 'nifty.services', 'nifty.home', 'ngOpenFB'])
 
   .run(function($ionicPlatform, ngFB) {
     ngFB.init({appId: '1331224416906757'});
@@ -22,6 +22,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         StatusBar.styleDefault();
       }
     });
+  })
+
+  .directive('ngFloatl', function () {
+    return {
+      link: function (scope, elem, attrs, ctrl)  {
+        var wrapper = elem[0];
+        var label = wrapper.querySelector('label');
+        var input = wrapper.querySelector('input');
+
+        angular.element(elem).addClass('floatl');
+        angular.element(label).addClass('floatl__label');
+        angular.element(input).addClass('floatl__input');
+
+        new Floatl(wrapper);
+      }
+    }
   })
 
   .config(function($stateProvider, $urlRouterProvider) {
@@ -113,6 +129,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'AppCtrl'
+      })
+      .state('profile', {
+        url: '/onboard-profile',
+          templateUrl: 'templates/onboarding/onboard-profile.html'
+      })
+      .state('payment', {
+        url: '/onboard-payment',
+        templateUrl: 'templates/onboarding/onboard-payment.html'
+      })
+
+      .state('clothing', {
+        url: '/onboard-clothing',
+        templateUrl: 'templates/onboarding/onboard-clothing.html'
       });
 
     // if none of the above states are matched, use this as the fallback

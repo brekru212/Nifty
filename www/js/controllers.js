@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ngOpenFB'])
+angular.module('nifty.controllers', ['ngOpenFB'])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout, ngFB, $state) {
     $scope.fbLogin = function () {
@@ -6,7 +6,7 @@ angular.module('starter.controllers', ['ngOpenFB'])
         function (response) {
           if (response.status === 'connected') {
             console.log('Facebook login succeeded');
-            $state.go('tab.home');
+            $state.go('profile');
           } else {
             alert('Facebook login failed');
           }
@@ -28,24 +28,9 @@ angular.module('starter.controllers', ['ngOpenFB'])
         $scope.user = user;
       },
       function (error) {
-        alert('Facebook error Muigai: ' + error.error_description);
+        alert('Facebook error: ' + error.error_description);
       }
     );
-    // $scope.share = function (event) {
-    //   ngFB.api({
-    //     method: 'POST',
-    //     path: '/me/feed',
-    //     params: {
-    //       message: "I'll be attending: Seminar by Shukarullah Shah on Ionic Facebook Integration "
-    //     }
-    //   }).then(
-    //     function () {
-    //       alert('The session was shared on Facebook');
-    //     },
-    //     function () {
-    //       alert('An error occurred while sharing this session on Facebook');
-    //     });
-    // };
   })
 
   .controller('LikesCtrl', function($scope) {})

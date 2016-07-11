@@ -1,6 +1,14 @@
-/**
- * Created by Unaka Muigai on 6/24/2016.
- */
+angular.module('nifty.user', [])
+  .controller('UserController', function() {
+    this.name = null;
+    this.fbid = null;
+    this.address = null;
+    this.createUser = function(username, fbid, address) {
+      this.name = username;
+      this.fbid = fbid;
+      this.address = address;
+    }
+  });
 
   /** Represents a user of the app, **still need to add fields to this** */
 class User {
@@ -29,3 +37,5 @@ class Closet {
     this.clothingList = []; //array or list of Clothing?
   }
 }
+
+

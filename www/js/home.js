@@ -1,4 +1,4 @@
-angular.module('starter.home', [])
+angular.module('nifty.home', [])
 
   .factory('Home', function() {
     // Might use a resource here that returns a JSON array

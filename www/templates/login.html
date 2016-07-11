@@ -1,10 +1,13 @@
-<ion-view view-title="Login">
+<ion-view view-title="Login" hide-nav-bar="true">
   <ion-content>
-    <label class="item">
-      <button class="button button-block button-positive" ng-click="fbLogin()">
-    	   Login with Facebook
-    	</button>
-      Login button works, i just need to style it! WOOOO, took forever!!
-    </label>
+    <div class="login-bg">
+      <button class="fb-btn" ng-click="fbLogin()"  ui-sref="profile">
+        Login with facebook
+      </button>
+      <br>
+      <button class="cancel-btn">
+        Cancel
+      </button>
+    </div>
   </ion-content>
 </ion-view>
