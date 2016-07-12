@@ -1,7 +1,12 @@
 angular.module('nifty.services', [])
 
-
-
+  .service('userData', function () {
+    var user = {
+      name: "init",
+      picture: ""
+    };
+  })
+  
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

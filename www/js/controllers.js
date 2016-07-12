@@ -1,6 +1,8 @@
 angular.module('nifty.controllers', ['ngOpenFB'])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, ngFB, $state) {
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, ngFB, $state, userData) {
+
+    /** Function to login the user into the app using facebook*/
     $scope.fbLogin = function () {
       ngFB.login({scope: 'email'}).then(
         function (response) {
@@ -13,6 +15,32 @@ angular.module('nifty.controllers', ['ngOpenFB'])
         }
       );
     };
+    /** Function to retrieve the user's facebook information after they login */
+    $scope.getInfo = function () {
+      $scope.niftyuser = {name: "init", pictureUrl: ""};
+      /*Getter method to get information of me (user who is logged in)*/
+      // ngFB.api('/me', 'GET', {fields: 'first_name,last_name,name,picture.width(300).height(300)'},
+        ngFB.api({
+          path: '/me',
+          params: {fields: 'id,first_name,last_name,name,picture.width(300).height(300)'}
+        }).then(
+        function(response) {
+          $scope.niftyuser.name = response.name;
+          $scope.niftyuser.pictureUrl = response.picture.data.url;
+          $scope.user = userData.name;
+
+          console.log($scope.niftyuser.name);
+
+          /*this.username = response.name;
+          this.profpic = response.picture.data.url;
+          this.id = response.id;
+          this.email = response.email;
+          console.log("fb name: " + $scope.niftyuser.name);
+          console.log("fb pic: " + $scope.niftyuser.pictureUrl);
+          console.log("fb id: " + this.id);
+          console.log("fb email: " + this.email);*/
+        } )
+    }
   })
 
   .controller('HomeCtrl', function($scope, Home) {

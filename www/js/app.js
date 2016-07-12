@@ -132,16 +132,19 @@ angular.module('nifty', ['ionic', 'nifty.controllers', 'nifty.services', 'nifty.
       })
       .state('profile', {
         url: '/onboard-profile',
-          templateUrl: 'templates/onboarding/onboard-profile.html'
+        templateUrl: 'templates/onboarding/onboard-profile.html',
+        controller: 'AppCtrl'
       })
       .state('payment', {
         url: '/onboard-payment',
-        templateUrl: 'templates/onboarding/onboard-payment.html'
+        templateUrl: 'templates/onboarding/onboard-payment.html',
+        controller: 'AppCtrl'
       })
 
       .state('clothing', {
         url: '/onboard-clothing',
-        templateUrl: 'templates/onboarding/onboard-clothing.html'
+        templateUrl: 'templates/onboarding/onboard-clothing.html',
+        controller: 'AppCtrl'
       });
 
     // if none of the above states are matched, use this as the fallback
