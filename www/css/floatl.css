@@ -63,7 +63,11 @@
   background-color: #2a8dea;
 }
 
-.floatl__input:focus {
+.floatl__textarea {
+  border: 1px solid #eee;
+}
+
+.floatl__input:focus, .floatl__textarea:focus {
   border-color: #2a8dea;
 }
 

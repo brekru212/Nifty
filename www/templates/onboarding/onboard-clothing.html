@@ -1,1 +1,52 @@
-Clothing
+<ion-view view-title="Login">
+  <ion-content>
+    <section class="less-margin onboard">
+      <div class="profile-intro">
+        <h4>Hello, {{niftyuser.name}} , {{user.name}}</h4>
+        <h6> Last step: Add your first dress!</h6>
+      </div>
+      DRESS INFORMATION
+      <form class="profile-form">
+        <div ng-floatl>
+          <label>NAME</label>
+          <input placeholder="NAME"/>
+        </div>
+        <div ng-floatl>
+          <label>SIZE</label>
+          <input placeholder="SIZE" style="width: 100%; padding: 0 0 0 43px;"/>
+        </div>
+        <div ng-floatl>
+          <label>BRAND</label>
+          <input placeholder="BRAND"/>
+        </div>
+        <div ng-floatl>
+          <label>MRP</label>
+          <input placeholder="MRP"/>
+        </div>
+        <div ng-floatl>
+          <label>RENTAL COST</label>
+          <input placeholder="RENTAL COST"/>
+        </div>
+        <textarea class="floatl__textarea"
+                  placeholder="briefly describe your dress; anything from fit to color to occasion!"></textarea>
+        MODEL INFORMATION
+        <div ng-floatl>
+          <label>HEIGHT</label>
+          <input placeholder="HEIGHT"/>
+        </div>
+        <div ng-floatl>
+          <label>BUST</label>
+          <input placeholder="BUST"/>
+        </div>
+        <div ng-floatl>
+          <label>WAIST</label>
+          <input placeholder="WAIST"/>
+        </div>
+      </form>
+      <button>TAGS</button>
+
+      <p ui-sref="complete" class="next">Next</p>
+      <p ui-sref="complete" class="skip"> Skip this step for now</p>
+    </section>
+  </ion-content>
+</ion-view>

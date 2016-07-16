@@ -144,7 +144,7 @@ li {
   flex-flow: column;
 }
 
-.fb-btn {
+/*.fb-btn {
   margin-top: 300px;
   width: 300px;
   height: 60px;
@@ -155,6 +155,22 @@ li {
   border: none;
   text-transform: uppercase;
   letter-spacing: 1px;
+}*/
+
+button {
+  display: flex;
+  justify-content: center;
+  padding: 0 40px;
+  height: 60px;
+  background-color: #175679;
+  color: white;
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  min-width: 240px;
 }
 
 .cancel-btn {
@@ -212,4 +228,14 @@ li {
   font-size: 10px;
   line-height: normal;
   padding: 5px 43px;
+  color: #333;
+  text-align: center;
+}
+
+.skip {
+  font-size: 12px;
+  color: #175679;
+  align-self: flex-end;
+  text-align: center;
+
 }

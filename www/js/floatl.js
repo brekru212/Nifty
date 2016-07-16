@@ -46,13 +46,13 @@ var Floatl =
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _floatl = __webpack_require__(1);
-	
+
 	var _floatl2 = _interopRequireDefault(_floatl);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	module.exports = _floatl2.default;
 
 /***/ },
@@ -60,46 +60,47 @@ var Floatl =
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _utils = __webpack_require__(2);
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	var focusedClass = 'floatl--focused';
 	var activeClass = 'floatl--active';
 	var multilineClass = 'floatl--multiline';
-	
+
 	var Floatl = function () {
 	  function Floatl(element) {
 	    _classCallCheck(this, Floatl);
-	
+
 	    this.element = (0, _utils.getElement)(element);
 	    this.label = this.element.querySelectorAll('.floatl__label')[0];
 	    this.input = this.element.querySelectorAll('.floatl__input')[0];
-	
+      this.textarea = this.element.querySelectorAll('.floatl__textarea')[0];
+
 	    this._bindListeners();
 	    this._init();
 	  }
-	
+
 	  _createClass(Floatl, [{
 	    key: '_bindListeners',
 	    value: function _bindListeners() {
 	      var _this = this;
-	
+
 	      (0, _utils.addEventListener)(this.input, 'focus', function () {
 	        (0, _utils.addClass)(_this.element, focusedClass);
 	      });
-	
+
 	      (0, _utils.addEventListener)(this.input, 'blur', function () {
 	        (0, _utils.removeClass)(_this.element, focusedClass);
 	      });
-	
+
 	      var _arr = ['keyup', 'blur', 'change'];
 	      for (var _i = 0; _i < _arr.length; _i++) {
 	        var event = _arr[_i];
@@ -114,7 +115,7 @@ var Floatl =
 	      if (this.input.tagName === 'TEXTAREA') {
 	        (0, _utils.addClass)(this.element, multilineClass);
 	      }
-	
+
 	      this._handleChange();
 	    }
 	  }, {
@@ -127,7 +128,7 @@ var Floatl =
 	      }
 	    }
 	  }]);
-	
+
 	  return Floatl;
 	}();
 
@@ -138,7 +139,7 @@ var Floatl =
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -155,7 +156,7 @@ var Floatl =
 	    throw new TypeError('%{element} \'is not a valid element.\n                        Valid options are: DOM Element, jQuery.\'');
 	  }
 	}
-	
+
 	function addClass(element, className) {
 	  if (element.classList) {
 	    element.classList.add(className);
@@ -163,7 +164,7 @@ var Floatl =
 	    element.className += ' %{className}';
 	  }
 	}
-	
+
 	function removeClass(element, className) {
 	  if (element.classList) {
 	    element.classList.remove(className);
@@ -172,7 +173,7 @@ var Floatl =
 	    element.className = element.className.replace(re, ' ');
 	  }
 	}
-	
+
 	function addEventListener(element, eventName, handler) {
 	  if (element.addEventListener) {
 	    element.addEventListener(eventName, handler);
