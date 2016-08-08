@@ -1,6 +1,6 @@
 angular.module('nifty.controllers', ['ngOpenFB'])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, ngFB, $state, userData) {
+  .controller('LoginCtrl', function($scope, $ionicModal, $timeout, ngFB, $state) {
 
     /** Function to login the user into the app using facebook*/
     $scope.fbLogin = function () {
@@ -17,30 +17,66 @@ angular.module('nifty.controllers', ['ngOpenFB'])
     };
     /** Function to retrieve the user's facebook information after they login */
     $scope.getInfo = function () {
-      $scope.niftyuser = {name: "init", pictureUrl: ""};
+      /*Getter method to get information of me (user who is logged in)*/
+      // ngFB.api('/me', 'GET', {fields: 'first_name,last_name,name,picture.width(300).height(300)'},
+      ngFB.api({
+        path: '/me',
+        params: {fields: 'first_name,last_name,id,name,picture'}
+      }).then(
+        function(response) {
+          var formattedName = response.first_name + " " + response.last_name.substring(0,1);
+          localStorage.setItem('name', formattedName);
+          localStorage.setItem('fbpic', JSON.stringify(response.picture.data.url));
+        } )
+    }
+
+  })
+
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, ngFB, $state, userData) {
+    /** Function to login the user into the app using facebook*/
+    $scope.fbLogin = function () {
+      ngFB.login({scope: 'email'}).then(
+        function (response) {
+          if (response.status === 'connected') {
+            console.log('Facebook login succeeded');
+            $state.go('profile');
+          } else {
+            alert('Facebook login failed');
+          }
+        }
+      );
+    };
+    /** Function to retrieve the user's facebook information after they login */
+    $scope.getInfo = function () {
       /*Getter method to get information of me (user who is logged in)*/
       // ngFB.api('/me', 'GET', {fields: 'first_name,last_name,name,picture.width(300).height(300)'},
         ngFB.api({
           path: '/me',
-          params: {fields: 'id,first_name,last_name,name,picture.width(300).height(300)'}
+          params: {fields: 'first_name,last_name,id,name,picture'}
         }).then(
         function(response) {
-          $scope.niftyuser.name = response.name;
-          $scope.niftyuser.pictureUrl = response.picture.data.url;
-          $scope.user = userData.name;
-
-          console.log($scope.niftyuser.name);
-
-          /*this.username = response.name;
-          this.profpic = response.picture.data.url;
-          this.id = response.id;
-          this.email = response.email;
-          console.log("fb name: " + $scope.niftyuser.name);
-          console.log("fb pic: " + $scope.niftyuser.pictureUrl);
-          console.log("fb id: " + this.id);
-          console.log("fb email: " + this.email);*/
+          var formattedName = response.first_name + " " + response.last_name.substring(0,1);
+          localStorage.setItem('name', formattedName);
+          localStorage.setItem('fbpic', JSON.stringify(response.picture.data.url));
         } )
     }
+  })
+
+  .controller('ProfileCtrl', function($scope, ngFB, userData) {
+    $scope.name = localStorage.getItem('name');
+    $scope.fbpic = localStorage.getItem('fbpic');
+  })
+  .controller('PaymentCtrl', function($scope, userData) {
+    $scope.name = localStorage.getItem('name');
+    $scope.fbpic = localStorage.getItem('fbpic');
+  })
+  .controller('AddClothingCtrl', function($scope, userData) {
+    $scope.name = localStorage.getItem('name');
+    $scope.fbpic = localStorage.getItem('fbpic');
+  })
+
+  .controller('OnboardCompleteCtrl', function($scope) {
+
   })
 
   .controller('HomeCtrl', function($scope, Home) {

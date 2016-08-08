@@ -1,12 +1,11 @@
 angular.module('nifty.services', [])
 
   .service('userData', function () {
-    var user = {
-      name: "init",
-      picture: ""
-    };
+    this.name = localStorage.getItem('name');
+    this.fbpic = localStorage.getItem('fbpic');
   })
-  
+
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

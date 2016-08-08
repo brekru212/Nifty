@@ -133,19 +133,25 @@ angular.module('nifty', ['ionic', 'nifty.controllers', 'nifty.services', 'nifty.
       .state('profile', {
         url: '/onboard-profile',
         templateUrl: 'templates/onboarding/onboard-profile.html',
-        controller: 'AppCtrl'
+        controller: 'ProfileCtrl'
       })
       .state('payment', {
         url: '/onboard-payment',
         templateUrl: 'templates/onboarding/onboard-payment.html',
-        controller: 'AppCtrl'
+        controller: 'PaymentCtrl'
       })
 
       .state('clothing', {
         url: '/onboard-clothing',
         templateUrl: 'templates/onboarding/onboard-clothing.html',
-        controller: 'AppCtrl'
-      });
+        controller: 'AddClothingCtrl'
+      })
+
+    .state('complete', {
+      url: '/onboard-complete',
+      templateUrl: 'templates/onboarding/onboard-complete.html',
+      controller: 'OnboardCompleteCtrl'
+    });
 
     // if none of the above states are matched, use this as the fallback
     // $urlRouterProvider.otherwise('/tab/home');

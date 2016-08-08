@@ -2,12 +2,11 @@
   <ion-content>
     <section class="less-margin onboard">
       <div class="profile-intro">
-        <h4>Hello, {{niftyuser.name}} , {{user.name}}</h4>
+        <h4>Hello, {{name}}</h4>
         <h6>First things first, let's set up your profile</h6>
       </div>
       <div class="profile-img">
-        <img ng-src="{{niftyuser.pictureUrl}}">
-        <img src="../../img/shivi.jpg">
+        <img ng-src={{fbpic}}>
       </div>
       <form class="profile-form">
         <div ng-floatl>
