@@ -171,6 +171,7 @@ button {
   letter-spacing: 1px;
   margin: 0 auto;
   min-width: 220px;
+  border-radius: 4px;
 }
 
 

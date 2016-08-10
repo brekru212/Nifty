@@ -5,7 +5,7 @@
       <ion-slide-page>
         <ion-scroll zooming="false" direction="y" style="width: 100%; height: 100%;">
           <div class="login-bg">
-            <button class="fb-btn" ng-click="fbLogin(); getInfo()">
+            <button class="fb-btn" ng-click="fbLogin()">
               Login with facebook
             </button>
           </div>
@@ -45,16 +45,15 @@
         <ion-scroll zooming="false" direction="y" style="width: 100%; height: 100%;">
           <section class="less-margin onboard">
             <div class="profile-intro">
-              <h4>Hello, {{user.name}}</h4>
-              <h6>Now connect your forms of payment to Nifty</h6>
+              <h6>Easily connect your payment settings to your Venmo or Paypal Account</h6>
             </div>
             <br><br><br><br><br>
             <button>VENMO</button><br>
             <p class="fineprint align-center">you are not connected to venmo</p>
             <button>PAYPAL</button><br>
             <p class="fineprint align-center">you are not connected to paypal</p>
-            <p ui-sref="clothing" class="next">Next</p>
-            <p ui-sref="clothing" class="skip"> Skip this step for now</p>
+            <p class="next" ng-click="swiper.slideNext()">Next</p>
+            <p class="skip" ng-click="swiper.slideNext()"> Skip this step for now</p>
           </section>
         </ion-scroll>
       </ion-slide-page>
