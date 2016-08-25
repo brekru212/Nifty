@@ -1,11 +1,12 @@
-<ion-view view-title="New Account">
+<ion-view view-title="New Account" hide-nav-bar="hideNavBar">
   <ion-content scroll="false">
     <ion-slides  options="swiperOptions" slider="swiper">
 
       <ion-slide-page>
         <ion-scroll zooming="false" direction="y" style="width: 100%; height: 100%;">
           <div class="login-bg">
-            <button class="fb-btn" ng-click="fbLogin()">
+            <img class="blur-off" src="../img/logo_ko.png" />
+            <button class="blur-off fb-btn" ng-click="fbLogin()">
               Login with facebook
             </button>
           </div>
@@ -48,25 +49,31 @@
               <h6>Easily connect your payment settings to your Venmo or Paypal Account</h6>
             </div>
             <br><br><br><br><br>
-            <button>VENMO</button><br>
-            <p class="fineprint align-center">you are not connected to venmo</p>
-            <button>PAYPAL</button><br>
-            <p class="fineprint align-center">you are not connected to paypal</p>
-            <p class="next" ng-click="swiper.slideNext()">Next</p>
-            <p class="skip" ng-click="swiper.slideNext()"> Skip this step for now</p>
+            <div style="width: 100%">
+              <button>VENMO</button><br>
+              <p class="fineprint align-center">you are not connected to venmo</p>
+              <button>PAYPAL</button><br>
+              <p class="fineprint align-center">you are not connected to paypal</p>
+            </div>
+
+            <div style="width: 100%">
+              <p class="next" ng-click="swiper.slideNext()">Next</p>
+              <p class="skip" ng-click="swiper.slideNext()"> Skip this step for now</p>
+            </div>
           </section>
         </ion-scroll>
       </ion-slide-page>
 
       <ion-slide-page>
         <ion-scroll zooming="false" direction="y" style="width: 100%; height: 100%;">
+          <form class="profile-form">
           <section class="less-margin onboard">
             <div class="profile-intro">
-              <h4>Hello,{{user.name}}</h4>
-              <h6> Last step: Add your first dress!</h6>
+              <h6> Add your first dress!</h6>
+
             </div>
-            DRESS INFORMATION
-            <form class="profile-form">
+            <header class="onboard-head">DRESS INFORMATION</header>
+
               <div ng-floatl>
                 <label>NAME</label>
                 <input placeholder="NAME"/>
@@ -89,7 +96,7 @@
               </div>
               <textarea class="floatl__textarea"
                         placeholder="briefly describe your dress; anything from fit to color to occasion!"></textarea>
-              MODEL INFORMATION
+              <header class="onboard-head">MODEL INFORMATION</header>
               <div ng-floatl>
                 <label>HEIGHT</label>
                 <input placeholder="HEIGHT"/>
@@ -103,27 +110,27 @@
                 <input placeholder="WAIST"/>
               </div>
             </form>
+
+            <br><br>
             <button>TAGS</button>
 
-            <p ui-sref="complete" class="next">Next</p>
-            <p gotoScroll( class="skip"> Skip this step for now</p>
+            <p class="skip" ng-click="swiper.slideNext()">Skip this step for now</p>
           </section>
         </ion-scroll>
       </ion-slide-page>
 
-      <ion-slide-page>
+<!--      <ion-slide-page>
         <ion-scroll zooming="false" direction="y" style="width: 100%; height: 100%;">
           <section class="less-margin onboard">
             <div class="profile-img">
-              <img ng-src="{{niftyuser.pictureUrl}}">
-              <img src="../../img/shivi.jpg">
+              <img ng-src={{user.fbpic}}>
             </div>
             Congratulations you're ready to start renting clothes!
 
             <div>X to close this screen</div>
           </section>
         </ion-scroll>
-      </ion-slide-page>
+      </ion-slide-page>-->
 
     </ion-slides>
   </ion-content>

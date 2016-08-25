@@ -2,7 +2,24 @@
   <ion-content class="padding">
     <ion-list id="homefeed">
       <ion-item ng-repeat="home in home" type="item-text-wrap" class="homefeed-item">
-        <div class="userinfo-container">
+        <div class="homefeed-item-container">
+          <img class="clothing-thumb" ng-src="{{home.dressimg}}"/>
+          <div class="clothing-description-container">
+            <img />
+            <span>{{home.name}}</span>
+            <div> 5 STARS</div>
+
+            <!--
+            Code for the 5 stars:
+            https://codepen.io/AstroDroid/pen/FIdHb-->
+
+          </div>
+          <button class="rent-button">RENT</button>
+        </div>
+
+
+
+<!--        <div class="userinfo-container">
           <div class="prof-pic-thumb-container">
             <img class="prof-pic-thumb" ng-src="{{home.face}}">
           </div>
@@ -14,7 +31,10 @@
         <div class="clothing-description-container">
           <p class="clothing-price">Rent for ${{home.price}}</p>
           <p class="clothing-name">{{home.dressname}}</p>
-        </div>
+        </div>-->
+
+
+
       </ion-item>
     </ion-list>
 

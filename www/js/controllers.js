@@ -12,11 +12,21 @@ angular.module('nifty.controllers', ['ngOpenFB'])
       /* Initialize a scope variable with the swiper */
       onInit: function(swiper){
         $scope.swiper = swiper;
+        $scope.hideNavBar = true;
+      },
+      onSlideChangeStart: function(swiper) {
+        console.log(swiper.activeIndex);
+        if (swiper.isBeginning) {
+          $scope.hideNavBar = true;
+        } else {
+          $scope.hideNavBar = false;
+        }
+        console.log($scope.hideNavBar);
       },
       onSlideChangeEnd: function(swiper){
         console.log('The active index is ' + swiper.activeIndex);
+        console.log($scope.hideNavBar);
       },
-
     };
 
     /** Function to login the user into the app using facebook*/
@@ -28,7 +38,7 @@ angular.module('nifty.controllers', ['ngOpenFB'])
             $scope.loggedin = true;
             $scope.getInfo();
             $scope.swiper.slideNext();
-            $scope.swiper.allowSwipeToPrev = false;
+            /*$scope.swiper.allowSwipeToPrev = false;*/
             /*$state.go('tab-home');*/
           } else {
             alert('Facebook login failed');
@@ -49,7 +59,7 @@ angular.module('nifty.controllers', ['ngOpenFB'])
           console.log($scope.user);
         } )
     };
-    
+
     $scope.profileComplete = function() {
       if($scope.user.name !== undefined && $scope.user.bio !== undefined && $scope.user.address !== undefined) {
         $scope.swiper.slideNext();

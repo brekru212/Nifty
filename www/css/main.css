@@ -33,12 +33,19 @@ header p {
 }
 
 .homefeed-item {
-  width: 48%;
-  margin: 24px 0 0 0;
+  width: 49.5%;
+  margin-bottom: 6px;
   padding: 0;
 }
 
-.userinfo-container, .clothing-thumb-container, .clothing-description-container {
+.homefeed-item-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-flow: row wrap;
+}
+
+.userinfo-container, .clothing-thumb-container {
   border: solid 1px #DDD;
   width: 100%;
 }
@@ -67,17 +74,17 @@ header p {
 
 .clothing-thumb {
   height: auto;
+  margin: 0 auto;
+  align-self: center;
   width: 100%;
 }
 
 .clothing-description-container{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  width: 50%;
 }
 
-.clothing-description-container p {
-  margin: 2px 0;
+.clothing-description-container span {
+  font-size: .5em;
   text-align: center;
 }
 
@@ -89,6 +96,15 @@ header p {
 
 .clothing-name {
 
+}
+
+.rent-button {
+  width: 50%;
+  height: 34px;
+  min-width: 20px;
+  min-height: 20px;
+  border: none;
+  border-radius: 0;
 }
 
 #niftynav {
@@ -134,7 +150,8 @@ li {
 
 .login-bg {
   background: url('../img/bgimg.jpg') no-repeat;
-  /*background-size: cover;*/
+  /*-webkit-filter: blur(1px);
+  filter: blur(1px);*/
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -142,6 +159,14 @@ li {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+}
+
+.blur-off {
+  -webkit-filter: blur(0px) !important;
+  -moz-filter   : blur(0px) !important;
+  -o-filter     : blur(0px) !important;
+  -ms-filter    : blur(0px) !important;
+  filter        : blur(0px) !important;
 }
 
 /*.fb-btn {
@@ -178,6 +203,10 @@ button {
 /*--------------------------------------------------------------
 # On-Boarding
 --------------------------------------------------------------*/
+.login-bg img {
+
+}
+
 .less-margin {
   margin-top: -10px;
 }
@@ -186,14 +215,20 @@ button {
   width: 100%;
   text-align: center;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 }
 
 .profile-intro h4 {
   text-transform: uppercase;
-
 }
+
 .profile-intro h6 {
   color: #333;
+  width: 66%;
+
 }
 
 .profile-img {
@@ -225,9 +260,15 @@ button {
   text-align: left;
 }
 
+.skip {
+  color: #666;
+  font-weight: lighter;
+}
+.next {
+  color: #521C36;
+}
 .skip, .next {
   font-size: 16px;
-  color: #521C36;
   align-self: flex-end;
   text-align: center;
   display: flex;
@@ -241,4 +282,11 @@ button {
 
 .spacer {
   margin: 40px auto;
+}
+
+header.onboard-head {
+  width: 100%;
+  height: 50px;
+  background-color: #ddd;
+  color: #521C36;
 }

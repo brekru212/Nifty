@@ -40,12 +40,15 @@ angular.module('nifty', ['ionic', 'nifty.controllers', 'nifty.services', 'nifty.
     }
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
+
+    $ionicConfigProvider.tabs.position("bottom");
+
     $stateProvider
 
     // setup an abstract state for the tabs directive
@@ -133,6 +136,12 @@ angular.module('nifty', ['ionic', 'nifty.controllers', 'nifty.services', 'nifty.
 
     // if none of the above states are matched, use this as the fallback
     // $urlRouterProvider.otherwise('/tab/home');
-    $urlRouterProvider.otherwise('/login');
+
+    // if the user is logged in go to the home tab on load, if the user is not logged in the first screen will be login
+    if (true) {
+      $urlRouterProvider.otherwise('/tab/home');
+    } else {
+      $urlRouterProvider.otherwise('/login');
+    }
 
   });
