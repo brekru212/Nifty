@@ -138,7 +138,7 @@ angular.module('nifty', ['ionic', 'nifty.controllers', 'nifty.services', 'nifty.
     // $urlRouterProvider.otherwise('/tab/home');
 
     // if the user is logged in go to the home tab on load, if the user is not logged in the first screen will be login
-    if (true) {
+    if (false) {
       $urlRouterProvider.otherwise('/tab/home');
     } else {
       $urlRouterProvider.otherwise('/login');
